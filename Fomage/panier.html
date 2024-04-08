@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panier - Gomashop</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .navbar-custom{
+      background-color: #0e0e0e;
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-nav .nav-link {
+      color: #ffffff;
+    }
+    .produit-liste {
+      border-bottom: 1px solid #dee2e6;
+    }
+    .produit-liste:last-child {
+      border-bottom: none;
+    }
+    .achat-btn {
+      background-color: #04770e;
+      color: #fff;
+    }
+    body {
+      padding-bottom: 80px; /* Taille du pied de page */
+      padding-top: 0%;
+    }
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #181e25;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .footer a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 10px;
+       }
+  </style>
+</head>
+<body>
+ 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+    <a class="navbar-brand" href="#">Goma&Shop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="accueil.html">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="panier.html">Panier</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Produits</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+ 
+  <div class="container mt-5">
+    <h2>Sélectionnez un produit</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="fromage.jpg" class="card-img-top" alt="fromage">
+          <div class="card-body">
+            <h5 class="card-title">Fromage</h5>
+            <p class="card-text">Valider l'achat</p>
+            <button class="btn btn-primary achat-btn" onclick="validerCommande('Fromage', 10)">validerCommande (10 $)</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="saucisse1.jpeg" class="card-img-top" alt="Saucisse">
+          <div class="card-body">
+            <h5 class="card-title">Saucisse</h5>
+            <p class="card-text">Valider l'achat</p>
+            <button class="btn btn-primary achat-btn" onclick="validerCommande('Saucisse', 15)">validerCommande (13 $)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <p>Wakaindustriels &copy; <span id="currentYear"></span> - Version 1.0
+  Email:exauceiwaka@gmail.com </p>
+  </div>
+ 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Fonction pour ajouter un produit au panier
+    function ajouterAuPanier(nomProduit, prix) {
+      let produit = { nomProduit: nomProduit, prix: prix };
+      localStorage.setItem('produitPanier', JSON.stringify(produit));
+      window.location.href = 'panier.html'; // Redirection vers la page du panier
+    }
+    <!-- Ajoutez ce code à la fin de votre script dans panier.html -->
+
+    // Fonction pour valider la commande et passer à la page de finalisation
+    function validerCommande() {
+      // Vous pouvez ajouter ici toute autre logique de validation de commande si nécessaire
+      window.location.href = 'finalisation.html'; // Redirection vers la page de finalisation
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalisation de commande - Gomashop</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      padding-top: 0px;
+    }
+    .jumbotron {
+      background-color: #031222;
+      padding: 2rem 2rem;
+      color: #ffffff;
+    }
+    h1 {
+      color: hsl(220, 13%, 95%);
+    }
+    p {
+      color: #0dc01c;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .navbar-custom{
+      background-color: #0e0e0e;
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-nav .nav-link {
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+ 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+    <a class="navbar-brand" href="#">Goma&Shop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="accueil.html">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="panier.html">Panier</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Produits</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+ 
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1 class="display-4">Finalisation de commande</h1>
+      <p class="lead">Veuillez remplir les détails de votre commande.</p>
+      <hr class="my-4">
+      <!-- Formulaire pour choisir le nom du produit et la quantité -->
+      <form id="orderForm">
+        <div class="form-group">
+          <label for="productName">Nom du produit:</label>
+          <input type="text" class="form-control" id="productName" placeholder="Entrez le nom du produit" required>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantité en Kg:</label>
+          <input type="number" class="form-control" id="quantity" min="1" value="1" required>
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom complet:</label>
+          <input type="text" class="form-control" id="nom" placeholder="Entrez votre nom complet" required>
+        </div>
+        <div class="form-group">
+          <label for="number">Téléphone:</label>
+          <input type="number" class="form-control" id="number" placeholder="Entrez votre numéro" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Entrez votre email" required>
+        </div>
+        <div class="form-group">
+          <label for="adresse">Adresse de livraison:</label>
+          <textarea class="form-control" id="adresse" rows="3" placeholder="Entrez votre adresse de livraison" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="modePaiement">Mode de paiement:</label>
+          <select class="form-control" id="modePaiement" required>
+            <option value="par téléphone">Airtelmoney</option>
+            <option value="Par téléphone">MPSA</option>
+            <option value="En espèces">En espèces</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Valider la commande</button>
+      </form>
+      <!-- Fin du formulaire -->
+    </div>
+  </div>
+  
+ 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Écouter la soumission du formulaire pour finaliser la commande
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Empêche le comportement par défaut du formulaire
+      // Récupérer les valeurs du formulaire
+      let productName = document.getElementById('productName').value;
+      let quantity = document.getElementById('quantity').value;
+      let nom = document.getElementById('nom').value;
+      let email = document.getElementById('email').value;
+      let adresse = document.getElementById('adresse').value;
+      let modePaiement = document.getElementById('modePaiement').value;
+      // Vous pouvez ajouter ici la logique pour finaliser la commande
+      // Une fois la commande finalisée, vous pouvez rediriger l'utilisateur vers une page de confirmation ou de remerciement
+      window.location.href = 'confirmation.html';
+    });
+  </script>
+</body>
+</html>
